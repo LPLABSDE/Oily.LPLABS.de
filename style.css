@@ -21,9 +21,10 @@ body {
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 25px 20px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 
 /* Markenname mit schimmerndem Gold-Effekt bei Hover */
@@ -65,11 +66,11 @@ body {
     margin-bottom: 15px;
 }
 
-/* Größerer Abstand zur Datenschutzerklärung im Menü */
+/* Vergrößerter Abstand für den Datenschutzerklärung-Button im Menü */
 .menu-item.datenschutz-item {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 100px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .menu-link {
@@ -88,11 +89,12 @@ body {
     color: #f1c40f;
 }
 
-/* Hauptinhalt rechts */
+/* Hauptinhalt rechts – ERHEBLICH ERHÖHTER ABSTAND ZUR NAVIGATIONSLEISTE */
 .main-content {
-    margin-left: 250px;
-    padding: 40px;
-    width: calc(100% - 250px);
+    margin-left: 320px; /* Baut 70px echten Abstand zur Sidebar auf */
+    padding: 60px 80px;
+    width: calc(100% - 320px);
+    max-width: 1200px;
 }
 
 .section {
@@ -107,16 +109,19 @@ body {
 .home-banner {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 35px auto;
     text-align: center;
 }
 
 .home-banner img {
     width: 100%;
+    max-width: 700px;
     height: auto;
     object-fit: contain;
     background: transparent;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
 }
 
 h2 {
@@ -176,7 +181,7 @@ ul {
 .app-icon img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .app-title {
