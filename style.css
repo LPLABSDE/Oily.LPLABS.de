@@ -1,58 +1,84 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
 body {
     display: flex;
-    background-color: #f5f7fa;
-    color: #333;
+    background: #0d1117; /* Moderner Dark Mode für maximale 3D-Glow-Wirkung */
+    color: #f0f6fc;
     min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Linkes Menüband (Sidebar) */
+/* Dynamischer 3D-Lichteffekt im Hintergrund */
+body::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(52, 152, 219, 0.25) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, 50px) scale(1.1); }
+}
+
+/* Linkes Menüband (Sidebar - Glassmorphism) */
 .sidebar {
     width: 250px;
-    background-color: #1a252f;
+    background: rgba(22, 27, 34, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     padding: 20px;
+    z-index: 10;
 }
 
 .brand-name {
     font-size: 24px;
-    font-weight: bold;
-    color: #3498db;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 40px;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
-.menu-items {
-    list-style: none;
-}
-
-.menu-item {
-    margin-bottom: 15px;
-}
+.menu-items { list-style: none; }
+.menu-item { margin-bottom: 12px; }
 
 .menu-link {
-    color: #ecf0f1;
+    color: #8b949e;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     display: block;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-link:hover, .menu-link.active {
-    background-color: #34495e;
-    color: #3498db;
+    background: rgba(52, 152, 219, 0.15);
+    color: #58a6ff;
+    transform: translateX(5px);
+    box-shadow: inset 0 0 0 1px rgba(56, 139, 253, 0.4);
 }
 
 /* Hauptinhalt rechts */
@@ -60,70 +86,85 @@ body {
     margin-left: 250px;
     padding: 40px;
     width: calc(100% - 250px);
+    position: relative;
+    z-index: 1;
 }
 
-.section {
-    display: none;
-}
-
-/* Zeige aktive Sektion */
-.section.active {
-    display: block;
-}
+.section { display: none; }
+.section.active { display: block; }
 
 h2 {
     margin-bottom: 20px;
-    color: #2c3e50;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 p {
     line-height: 1.6;
     margin-bottom: 20px;
+    color: #8b949e;
 }
 
-/* Kachel-System für Apps */
+/* Kachel-System für Apps (3D & Interactive Glass) */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
     margin-top: 20px;
+    perspective: 1000px; /* Aktiviert echtes 3D-Perspektiven-Rendering */
 }
 
 .app-card {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 24px 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid #e2e8f0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
+    transform-style: preserve-3d;
 }
 
 .app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transform: translateY(-10px) rotateX(4deg) rotateY(-2deg) scale(1.02);
+    border-color: rgba(56, 139, 253, 0.4);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(52, 152, 219, 0.2);
 }
 
+/* 3D App Icon Container */
 .app-icon {
-    width: 70px;
-    height: 70px;
-    background-color: #3498db;
-    color: white;
-    font-size: 32px;
-    line-height: 70px;
-    border-radius: 18px;
-    margin: 0 auto 15px auto;
-    font-weight: bold;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 18px auto;
+    overflow: hidden;
+    background-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    transform: translateZ(20px); /* Hebtt das Icon dreidimensional von der Karte ab */
+}
+
+.app-card:hover .app-icon {
+    transform: translateZ(35px) scale(1.08);
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .app-title {
     font-size: 18px;
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: 600;
+    color: #f0f6fc;
+    transform: translateZ(15px);
 }
 
-/* App-Detailansicht (Popup/Modal) */
+/* App-Detailansicht (3D Modal) */
 .modal {
     display: none;
     position: fixed;
@@ -131,65 +172,64 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
 .modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
+    background: rgba(22, 27, 34, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 35px;
+    border-radius: 24px;
     max-width: 500px;
     width: 90%;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(52, 152, 219, 0.15);
+    transform: scale(0.9);
+    animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modalPop {
+    to { transform: scale(1); }
 }
 
 .close-btn {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 18px;
+    right: 22px;
     font-size: 24px;
     cursor: pointer;
-    color: #94a3b8;
+    color: #8b949e;
+    transition: color 0.2s;
 }
 
-.modal-title {
-    margin-bottom: 10px;
-}
+.close-btn:hover { color: #ffffff; }
 
-.modal-subtitle {
-    color: #64748b;
-    font-style: italic;
-    margin-bottom: 15px;
-}
+.modal-title { margin-bottom: 10px; color: #ffffff; }
+.modal-subtitle { color: #8b949e; font-style: italic; margin-bottom: 20px; }
 
-.badge-container {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
-}
+.badge-container { display: flex; gap: 15px; margin-top: 25px; }
 
 .store-badge {
     display: inline-block;
-    background: #000;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 12px 20px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
     flex: 1;
     text-align: center;
-    transition: background 0.2s;
-}
-
-.store-badge.play {
-    background: #24292e;
+    transition: all 0.3s ease;
 }
 
 .store-badge:hover {
-    opacity: 0.9;
+    background: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
 }
