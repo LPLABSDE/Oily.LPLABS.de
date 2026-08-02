@@ -3,154 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lchandi - Portfolio & Apps</title>
-  
-  <link rel="icon" type="image/png" href="app-icon.png">
-  <link rel="apple-touch-icon" href="app-icon.png">
-  
+  <title>LChandi Apps</title>
+  <link rel="icon" type="image/png" href="Oily-APP-Icon.png">
+  <link rel="apple-touch-icon" href="Oily-APP-Icon.png">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-  <div class="layout-container">
-    
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h1 class="brand-title">lchandi</h1>
+  <header>
+    <div class="nav-container">
+      <div class="logo-wrapper">
+        <a href="#" id="brand-logo" onclick="showPage('home')">lchandi</a>
       </div>
-      
-      <nav class="nav-menu">
-        <a href="#home" class="nav-item active" data-i18n="nav_home">Home</a>
-        <a href="#apps" class="nav-item" data-i18n="nav_apps">Apps</a>
+      <nav class="nav-links">
+        <button id="nav-home" class="nav-btn active" onclick="showPage('home')">Home</button>
+        <button id="nav-apps" class="nav-btn" onclick="showPage('apps')">Apps</button>
+        <button id="lang-toggle" class="lang-btn" onclick="toggleLanguage()">EN</button>
       </nav>
-
-      <div class="sidebar-footer">
-        <div class="lang-dropdown">
-          <button class="lang-btn" id="langBtn">🇩🇪 DE</button>
-          <div class="lang-menu">
-            <button class="lang-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</button>
-            <button class="lang-option" onclick="changeLanguage('en')">🇬🇧 English</button>
-          </div>
-        </div>
-
-        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme mechseln">
-          <span class="theme-icon">☀️</span>
-        </button>
-
-        <a href="#" class="privacy-link" onclick="openPrivacyModal(event)" data-i18n="privacy_policy">Datenschutzerklärung</a>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      
-      <section id="home" class="section active">
-        <div class="hero-banner">
-          <img src="Oily - APP Banner.png" alt="Oily APP Banner" class="banner-img">
-        </div>
-      </section>
-
-      <section id="apps" class="section">
-        <h2 class="section-title" data-i18n="apps_title">Unsere Apps</h2>
-        
-        <div class="apps-grid">
-          <div class="app-card-container">
-            <div class="app-card" onclick="toggleAppCard(this)">
-              
-              <div class="card-face card-front">
-                <img src="app-icon.png" alt="Oily App Icon" class="app-card-icon">
-                <h3>Oily App</h3>
-                <p data-i18n="click_for_more" class="click-hint">Klicke für Details & Downloads</p>
-              </div>
-
-              <div class="card-face card-back">
-                <h3>Oily App</h3>
-                <p data-i18n="oily_desc">Deine umfassende App für ätherische Öle, Rezepte, Mischungen und Anwendungen. Entdecke die Kraft der Natur direkt auf deinem Smartphone.</p>
-                
-                <div class="app-links">
-                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🍏 App Store</a>
-                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🤖 Google Play</a>
-                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🌐 Web App</a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <div id="privacyModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closePrivacyModal()">&times;</span>
-      <h2 data-i18n="privacy_title">Datenschutzerklärung</h2>
-      <div class="modal-body" data-i18n="privacy_text">
-        <p>Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.</p>
-      </div>
     </div>
-  </div>
+  </header>
+
+  <main class="main-content">
+    
+    <section id="page-home" class="page-section active">
+      <div class="hero-card glass-card">
+        <div class="app-banner-container">
+          <img src="Oily-APP-Banner.png" alt="Oily App Banner" class="app-banner-img">
+        </div>
+        <div class="hero-content">
+          <h1 id="home-title">Willkommen bei LChandi</h1>
+          <p id="oily-desc" class="hero-desc">
+            Deine umfassende App für ätherische Öle, Rezepte, Mischungen und Anwendungen. Entdecke die Kraft der Natur direkt auf deinem Smartphone.
+          </p>
+          <div class="action-buttons">
+            <button class="cta-btn primary" onclick="showPage('apps')" id="btn-explore">Unsere Apps entdecken</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-apps" class="page-section">
+      <h2 id="apps-title" class="section-title">Unsere Apps</h2>
+      <p id="click-for-more" class="section-subtitle">Klicke für Details & Downloads</p>
+      
+      <div class="apps-grid">
+        <div class="app-card glass-card" onclick="openAppDetails('oily')">
+          <div class="app-icon-wrapper">
+            <img src="Oily-APP-Icon.png" alt="Oily Icon" class="app-icon-img">
+          </div>
+          <div class="app-info">
+            <h3>Oily</h3>
+            <p class="app-tagline">Ätherische Öle & Rezepte</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-privacy" class="page-section">
+      <div class="glass-card privacy-card">
+        <h2 id="privacy-title">Datenschutzerklärung</h2>
+        <div id="privacy-text" class="privacy-body">
+          <p>Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2026 LChandi. All rights reserved.</p>
+      <a href="#" id="privacy-link" onclick="showPage('privacy')">Datenschutzerklärung</a>
+    </div>
+  </footer>
 
   <script>
-    // Navigation zwischen Sections
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('.section');
-
-    navItems.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = item.getAttribute('href').substring(1);
-
-        navItems.forEach(nav => nav.classList.remove('active'));
-        item.classList.add('active');
-
-        sections.forEach(sec => {
-          if(sec.id === targetId) {
-            sec.classList.add('active');
-          } else {
-            sec.classList.remove('active');
-          }
-        });
-      });
-    });
-
-    // 3D Flip & Vergrößerung der App-Karte
-    function toggleAppCard(cardElement) {
-      cardElement.classList.toggle('flipped');
-    }
-
-    // Modal Steuerungen
-    function openPrivacyModal(e) {
-      if(e) e.preventDefault();
-      document.getElementById('privacyModal').style.display = 'flex';
-    }
-
-    function closePrivacyModal() {
-      document.getElementById('privacyModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('privacyModal');
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    }
-
-    // Dark / Light Mode Toggle
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-      const icon = document.querySelector('.theme-icon');
-      if(document.body.classList.contains('light-mode')) {
-        icon.textContent = '🌙';
-      } else {
-        icon.textContent = '☀️';
-      }
-    }
-
-    // Sprachumschaltung (i18n)
+    // Sprach-Übersetzungen
     const translations = {
       de: {
         nav_home: "Home",
@@ -160,7 +92,8 @@
         click_for_more: "Klicke für Details & Downloads",
         oily_desc: "Deine umfassende App für ätherische Öle, Rezepte, Mischungen und Anwendungen. Entdecke die Kraft der Natur direkt auf deinem Smartphone.",
         privacy_title: "Datenschutzerklärung",
-        privacy_text: "<p>Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.</p>"
+        privacy_text: "Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.",
+        btn_explore: "Unsere Apps entdecken"
       },
       en: {
         nav_home: "Home",
@@ -170,23 +103,52 @@
         click_for_more: "Click for details & downloads",
         oily_desc: "Your comprehensive app for essential oils, recipes, blends, and applications. Discover the power of nature right on your smartphone.",
         privacy_title: "Privacy Policy",
-        privacy_text: "<p>This is your privacy policy. You can customize this text as needed.</p>"
+        privacy_text: "This is your privacy policy. You can customize this text as needed.",
+        btn_explore: "Explore Our Apps"
       }
     };
 
-    function changeLanguage(lang) {
-      document.getElementById('langBtn').textContent = lang === 'de' ? '🇩🇪 DE' : '🇬🇧 EN';
+    let currentLang = 'de';
+
+    function toggleLanguage() {
+      currentLang = (currentLang === 'de') ? 'en' : 'de';
+      document.getElementById('lang-toggle').innerText = currentLang === 'de' ? 'EN' : 'DE';
       
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          if (key === 'privacy_text') {
-            el.innerHTML = translations[lang][key];
-          } else {
-            el.textContent = translations[lang][key];
-          }
-        }
-      });
+      const t = translations[currentLang];
+      document.getElementById('nav-home').innerText = t.nav_home;
+      document.getElementById('nav-apps').innerText = t.nav_apps;
+      document.getElementById('privacy-link').innerText = t.privacy_policy;
+      document.getElementById('apps-title').innerText = t.apps_title;
+      document.getElementById('click-for-more').innerText = t.click_for_more;
+      document.getElementById('oily-desc').innerText = t.oily_desc;
+      document.getElementById('privacy-title').innerText = t.privacy_title;
+      document.getElementById('privacy-text').innerHTML = `<p>${t.privacy_text}</p>`;
+      if(document.getElementById('btn-explore')) {
+        document.getElementById('btn-explore').innerText = t.btn_explore;
+      }
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      const navBtn = document.getElementById('nav-' + pageId);
+      if (navBtn) {
+        navBtn.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openAppDetails(appName) {
+      if(appName === 'oily') {
+        alert('Oily Details');
+      }
     }
   </script>
 </body>
