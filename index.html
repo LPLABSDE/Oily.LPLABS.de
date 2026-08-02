@@ -1,316 +1,193 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>app.lchandi</title>
-    <link rel="icon" type="image/png" href="Oily-APP-Icon.png">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lchandi - Portfolio & Apps</title>
+  
+  <link rel="icon" type="image/png" href="app-icon.png">
+  <link rel="apple-touch-icon" href="app-icon.png">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body>
 
-    <nav class="sidebar">
-        <div class="brand-name">lchandi</div>
-        
-        <ul class="menu-items">
-            <li class="menu-item">
-                <a href="#" class="menu-link active" onclick="switchTab(event, 'home')" data-lang="nav_home">Home</a>
-            </li>
-            <li class="menu-item">
-                <a href="#" class="menu-link" onclick="switchTab(event, 'apps')" data-lang="nav_apps">Apps</a>
-            </li>
-        </ul>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-        <div class="sidebar-footer">
-            <ul class="menu-items">
-                <li class="menu-item datenschutz-item">
-                    <a href="#" class="menu-link" onclick="switchTab(event, 'datenschutz')" data-lang="nav_privacy">Datenschutzerklärung</a>
-                </li>
-            </ul>
+  <div class="layout-container">
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="brand-title">lchandi</h1>
+      </div>
+      
+      <nav class="nav-menu">
+        <a href="#home" class="nav-item active" data-i18n="nav_home">Home</a>
+        <a href="#apps" class="nav-item" data-i18n="nav_apps">Apps</a>
+      </nav>
 
-            <div class="controls-container">
-                <div class="lang-dropdown">
-                    <button class="lang-btn" id="currentLangBtn">
-                        <span class="flag">🇩🇪</span> <span class="lang-code">DE</span>
-                    </button>
-                    <div class="lang-menu">
-                        <button class="lang-option" onclick="setLanguage('de')">
-                            <span class="flag">🇩🇪</span> Deutsch
-                        </button>
-                        <button class="lang-option" onclick="setLanguage('en')">
-                            <span class="flag">🇬🇧</span> English
-                        </button>
-                    </div>
-                </div>
-
-                <button class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Design wechseln">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
+      <div class="sidebar-footer">
+        <div class="lang-dropdown">
+          <button class="lang-btn" id="langBtn">🇩🇪 DE</button>
+          <div class="lang-menu">
+            <button class="lang-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</button>
+            <button class="lang-option" onclick="changeLanguage('en')">🇬🇧 English</button>
+          </div>
         </div>
-    </nav>
+
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme mechseln">
+          <span class="theme-icon">☀️</span>
+        </button>
+
+        <a href="#" class="privacy-link" onclick="openPrivacyModal(event)" data-i18n="privacy_policy">Datenschutzerklärung</a>
+      </div>
+    </aside>
 
     <main class="main-content">
+      
+      <section id="home" class="section active">
+        <div class="hero-banner">
+          <img src="Oily - APP Banner.png" alt="Oily APP Banner" class="banner-img">
+        </div>
+      </section>
+
+      <section id="apps" class="section">
+        <h2 class="section-title" data-i18n="apps_title">Unsere Apps</h2>
         
-        <section id="home" class="section active">
-            <div class="home-banner">
-                <img src="Oily-APP-Banner.png" alt="lchandi Banner">
-            </div>
+        <div class="apps-grid">
+          <div class="app-card-container">
+            <div class="app-card" onclick="toggleAppCard(this)">
+              
+              <div class="card-face card-front">
+                <img src="app-icon.png" alt="Oily App Icon" class="app-card-icon">
+                <h3>Oily App</h3>
+                <p data-i18n="click_for_more" class="click-hint">Klicke für Details & Downloads</p>
+              </div>
 
-            <p data-lang="home_p1">Wir entwickeln smarte Lösungen, um den Überblick über Ihre Fahrzeuge zu behalten. Strukturierte Daten und rechtzeitige Erinnerungen sorgen für eine längere Lebensdauer Ihrer Maschinen.</p>
-            <p data-lang="home_p2">Klicken Sie im Menü auf <strong>Apps</strong>, um unsere Anwendungen zu sehen.</p>
-        </section>
-
-        <section id="apps" class="section">
-            <h2 data-lang="apps_title">Unsere Apps</h2>
-            <p data-lang="apps_subtitle">Wählen Sie eine App aus, um Details und Download-Links anzuzeigen:</p>
-            
-            <div class="grid-container">
-                <div class="app-card" onclick="openAppDetails()">
-                    <div class="app-icon"><img src="Oily-APP-Icon.png" alt="Oily App Icon"></div>
-                    <div class="app-title">Oily App</div>
+              <div class="card-face card-back">
+                <h3>Oily App</h3>
+                <p data-i18n="oily_desc">Deine umfassende App für ätherische Öle, Rezepte, Mischungen und Anwendungen. Entdecke die Kraft der Natur direkt auf deinem Smartphone.</p>
+                
+                <div class="app-links">
+                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🍏 App Store</a>
+                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🤖 Google Play</a>
+                  <a href="#" class="app-link-btn" onclick="event.stopPropagation()">🌐 Web App</a>
                 </div>
+              </div>
+
             </div>
-        </section>
-
-        <section id="datenschutz" class="section">
-            <h2 data-lang="privacy_title">Datenschutzerklärung</h2>
-
-            <h3 data-lang="privacy_h1">1. Verantwortlicher</h3>
-            <p data-lang="privacy_p1">
-                Verantwortlich für die Datenverarbeitung auf dieser Website ist der Betreiber:<br>
-                Lovepreet Chandi<br>
-                Mühlenstr., 39307 Genthin<br>
-                kontakt@lchandi.de
-            </p>
-
-            <h3 data-lang="privacy_h2">2. Erhebung und Speicherung personenbezogener Daten</h3>
-            <p data-lang="privacy_p2">
-                Beim Besuch dieser Website werden automatisch Informationen erfasst, die dein Browser übermittelt. Dazu gehören u. a.:
-            </p>
-            <ul>
-                <li data-lang="privacy_li1">Server‑Log‑Daten wie IP‑Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem</li>
-                <li data-lang="privacy_li2">Zugriffsstatistiken, sofern ein Analyse‑Tool genutzt wird</li>
-            </ul>
-            <p data-lang="privacy_p3">
-                Diese Daten sind technisch notwendig, um die Website korrekt darzustellen und die Stabilität und Sicherheit zu gewährleisten.
-            </p>
-
-            <h3 data-lang="privacy_h3">3. Kontaktaufnahme</h3>
-            <p data-lang="privacy_p4">
-                Wenn du über ein Kontaktformular oder per E‑Mail mit uns kommunizierst, werden die von dir eingegebenen Daten gespeichert, um deine Anfrage zu bearbeiten. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
-            </p>
-
-            <h3 data-lang="privacy_h4">4. Cookies</h3>
-            <p data-lang="privacy_p5">
-                Diese Website kann Cookies verwenden, um bestimmte Funktionen bereitzustellen oder das Nutzerverhalten zu analysieren. Du kannst die Speicherung von Cookies in deinem Browser deaktivieren.
-            </p>
-
-            <h3 data-lang="privacy_h5">5. Analyse‑Tools</h3>
-            <p data-lang="privacy_p6">
-                Falls eingesetzt, können Tools wie Google Analytics oder Matomo genutzt werden, um das Nutzerverhalten auszuwerten. Dabei werden z. B. Seitenaufrufe, Verweildauer und technische Daten erfasst. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
-            </p>
-
-            <h3 data-lang="privacy_h6">6. Weitergabe von Daten</h3>
-            <p data-lang="privacy_p7">Eine Weitergabe deiner Daten erfolgt nur, wenn:</p>
-            <ul>
-                <li data-lang="privacy_li3">gesetzliche Verpflichtungen bestehen</li>
-                <li data-lang="privacy_li4">Dienstleister (z. B. Hosting‑Anbieter) eingebunden sind</li>
-            </ul>
-
-            <h3 data-lang="privacy_h7">7. Rechte der betroffenen Personen</h3>
-            <p data-lang="privacy_p8">Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch sowie Datenübertragbarkeit.</p>
-
-            <h3 data-lang="privacy_h8">8. Hosting</h3>
-            <p data-lang="privacy_p9">
-                Diese Website wird bei einem externen Dienstleister gehostet. Alle Daten werden auf dessen Servern gespeichert.
-            </p>
-
-            <h3 data-lang="privacy_h9">9. SSL‑/TLS‑Verschlüsselung</h3>
-            <p data-lang="privacy_p10">
-                Diese Website nutzt eine SSL‑/TLS‑Verschlüsselung, um übertragene Daten zu schützen.
-            </p>
-        </section>
+          </div>
+        </div>
+      </section>
 
     </main>
+  </div>
 
-    <div id="appModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeAppDetails()">&times;</span>
-            <h2 class="modal-title">Oily</h2>
-            <p class="modal-subtitle" data-lang="modal_subtitle">Smartes Wartungstagebuch</p>
-            <p data-lang="modal_desc">Behalten Sie den vollen Überblick über Ihre Auto-Wartungseinträge. Protokollieren Sie Ölwechsel, Filtertausch, Reparaturen und anstehende TÜV-Termine unkompliziert direkt auf Ihrem Android-Smartphone.</p>
-            
-            <div class="badge-container">
-                <a href="https://play.google.com/store/apps/details?id=com.project.oily" class="store-badge play" target="_blank">Google Play Store</a>
-                <a href="#" class="store-badge">App Store</a>
-            </div>
-        </div>
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePrivacyModal()">&times;</span>
+      <h2 data-i18n="privacy_title">Datenschutzerklärung</h2>
+      <div class="modal-body" data-i18n="privacy_text">
+        <p>Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.</p>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // --- Übersetzungen ---
-        const translations = {
-            de: {
-                nav_home: "Home",
-                nav_apps: "Apps",
-                nav_privacy: "Datenschutzerklärung",
-                home_p1: "Wir entwickeln smarte Lösungen, um den Überblick über Ihre Fahrzeuge zu behalten. Strukturierte Daten und rechtzeitige Erinnerungen sorgen für eine längere Lebensdauer Ihrer Maschinen.",
-                home_p2: "Klicken Sie im Menü auf <strong>Apps</strong>, um unsere Anwendungen zu sehen.",
-                apps_title: "Unsere Apps",
-                apps_subtitle: "Wählen Sie eine App aus, um Details und Download-Links anzuzeigen:",
-                privacy_title: "Datenschutzerklärung",
-                privacy_h1: "1. Verantwortlicher",
-                privacy_p1: "Verantwortlich für die Datenverarbeitung auf dieser Website ist der Betreiber:<br>Lovepreet Chandi<br>Mühlenstr., 39307 Genthin<br>kontakt@lchandi.de",
-                privacy_h2: "2. Erhebung und Speicherung personenbezogener Daten",
-                privacy_p2: "Beim Besuch dieser Website werden automatisch Informationen erfasst, die dein Browser übermittelt. Dazu gehören u. a.:",
-                privacy_li1: "Server‑Log‑Daten wie IP‑Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem",
-                privacy_li2: "Zugriffsstatistiken, sofern ein Analyse‑Tool genutzt wird",
-                privacy_p3: "Diese Daten sind technisch notwendig, um die Website korrekt darzustellen und die Stabilität und Sicherheit zu gewährleisten.",
-                privacy_h3: "3. Kontaktaufnahme",
-                privacy_p4: "Wenn du über ein Kontaktformular oder per E‑Mail mit uns kommunizierst, werden die von dir eingegebenen Daten gespeichert, um deine Anfrage zu bearbeiten. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.",
-                privacy_h4: "4. Cookies",
-                privacy_p5: "Diese Website kann Cookies verwenden, um bestimmte Funktionen bereitzustellen oder das Nutzerverhalten zu analysieren. Du kannst die Speicherung von Cookies in deinem Browser deaktivieren.",
-                privacy_h5: "5. Analyse‑Tools",
-                privacy_p6: "Falls eingesetzt, können Tools wie Google Analytics oder Matomo genutzt werden, um das Nutzerverhalten auszuwerten. Dabei werden z. B. Seitenaufrufe, Verweildauer und technische Daten erfasst. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
-                privacy_h6: "6. Weitergabe von Daten",
-                privacy_p7: "Eine Weitergabe deiner Daten erfolgt nur, wenn:",
-                privacy_li3: "gesetzliche Verpflichtungen bestehen",
-                privacy_li4: "Dienstleister (z. B. Hosting‑Anbieter) eingebunden sind",
-                privacy_h7: "7. Rechte der betroffenen Personen",
-                privacy_p8: "Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch sowie Datenübertragbarkeit.",
-                privacy_h8: "8. Hosting",
-                privacy_p9: "Diese Website wird bei einem externen Dienstleister gehostet. Alle Daten werden auf dessen Servern gespeichert.",
-                privacy_h9: "9. SSL‑/TLS‑Verschlüsselung",
-                privacy_p10: "Diese Website nutzt eine SSL‑/TLS‑Verschlüsselung, um übertragene Daten zu schützen.",
-                modal_subtitle: "Smartes Wartungstagebuch",
-                modal_desc: "Behalten Sie den vollen Überblick über Ihre Auto-Wartungseinträge. Protokollieren Sie Ölwechsel, Filtertausch, Reparaturen und anstehende TÜV-Termine unkompliziert direkt auf Ihrem Android-Smartphone."
-            },
-            en: {
-                nav_home: "Home",
-                nav_apps: "Apps",
-                nav_privacy: "Privacy Policy",
-                home_p1: "We develop smart solutions to keep track of your vehicles. Structured data and timely reminders ensure a longer lifespan for your machinery.",
-                home_p2: "Click on <strong>Apps</strong> in the menu to view our applications.",
-                apps_title: "Our Apps",
-                apps_subtitle: "Select an app to view details and download links:",
-                privacy_title: "Privacy Policy",
-                privacy_h1: "1. Controller",
-                privacy_p1: "Responsible for data processing on this website is the operator:<br>Lovepreet Chandi<br>Mühlenstr., 39307 Genthin<br>kontakt@lchandi.de",
-                privacy_h2: "2. Collection and Storage of Personal Data",
-                privacy_p2: "When visiting this website, information transmitted by your browser is automatically recorded. This includes:",
-                privacy_li1: "Server log data such as IP address, date and time of access, browser type, operating system",
-                privacy_li2: "Access statistics, if an analytics tool is used",
-                privacy_p3: "This data is technically necessary to display the website correctly and to ensure stability and security.",
-                privacy_h3: "3. Contact",
-                privacy_p4: "If you communicate with us via a contact form or email, the data you enter will be stored to process your request. Processing is based on Art. 6 Para. 1 lit. b GDPR.",
-                privacy_h4: "4. Cookies",
-                privacy_p5: "This website may use cookies to provide certain features or analyze user behavior. You can disable cookie storage in your browser settings.",
-                privacy_h5: "5. Analytics Tools",
-                privacy_p6: "If used, tools like Google Analytics or Matomo may evaluate user behavior, recording page views, duration, and technical data.",
-                privacy_h6: "6. Data Sharing",
-                privacy_p7: "Your data will only be shared if:",
-                privacy_li3: "legal obligations exist",
-                privacy_li4: "service providers (e.g. hosting providers) are involved",
-                privacy_h7: "7. Rights of Data Subjects",
-                privacy_p8: "You have the right to access, rectification, erasure, restriction of processing, objection, and data portability at any time.",
-                privacy_h8: "8. Hosting",
-                privacy_p9: "This website is hosted by an external service provider. All data is stored on its servers.",
-                privacy_h9: "9. SSL/TLS Encryption",
-                privacy_p10: "This website uses SSL/TLS encryption to protect transmitted data.",
-                modal_subtitle: "Smart Maintenance Logbook",
-                modal_desc: "Keep full control over your vehicle maintenance logs. Easily record oil changes, filter replacements, repairs, and upcoming inspection dates directly on your Android smartphone."
-            }
-        };
+  <script>
+    // Navigation zwischen Sections
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('.section');
 
-        let currentLang = 'de';
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = item.getAttribute('href').substring(1);
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            const btn = document.getElementById('currentLangBtn');
-            if(lang === 'de') {
-                btn.innerHTML = '<span class="flag">🇩🇪</span> <span class="lang-code">DE</span>';
-            } else {
-                btn.innerHTML = '<span class="flag">🇬🇧</span> <span class="lang-code">EN</span>';
-            }
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
 
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-        }
-
-        // --- Dark/Light Mode ---
-        let isDarkMode = true;
-
-        function toggleTheme() {
-            isDarkMode = !isDarkMode;
-            const body = document.body;
-            const icon = document.querySelector('.theme-icon');
-
-            if (isDarkMode) {
-                body.classList.remove('light-theme');
-                body.classList.add('dark-theme');
-                icon.textContent = '🌙';
-            } else {
-                body.classList.remove('dark-theme');
-                body.classList.add('light-theme');
-                icon.textContent = '☀️';
-            }
-        }
-
-        // Hover-Effekt für Theme Button (Sonne/Mond Wechsel)
-        const themeBtn = document.getElementById('themeToggleBtn');
-        themeBtn.addEventListener('mouseenter', () => {
-            const icon = document.querySelector('.theme-icon');
-            icon.textContent = isDarkMode ? '☀️' : '🌙';
+        sections.forEach(sec => {
+          if(sec.id === targetId) {
+            sec.classList.add('active');
+          } else {
+            sec.classList.remove('active');
+          }
         });
-        themeBtn.addEventListener('mouseleave', () => {
-            const icon = document.querySelector('.theme-icon');
-            icon.textContent = isDarkMode ? '🌙' : '☀️';
-        });
+      });
+    });
 
-        // --- Tabs Navigation ---
-        function switchTab(event, tabId) {
-            event.preventDefault();
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+    // 3D Flip & Vergrößerung der App-Karte
+    function toggleAppCard(cardElement) {
+      cardElement.classList.toggle('flipped');
+    }
+
+    // Modal Steuerungen
+    function openPrivacyModal(e) {
+      if(e) e.preventDefault();
+      document.getElementById('privacyModal').style.display = 'flex';
+    }
+
+    function closePrivacyModal() {
+      document.getElementById('privacyModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('privacyModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Dark / Light Mode Toggle
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      const icon = document.querySelector('.theme-icon');
+      if(document.body.classList.contains('light-mode')) {
+        icon.textContent = '🌙';
+      } else {
+        icon.textContent = '☀️';
+      }
+    }
+
+    // Sprachumschaltung (i18n)
+    const translations = {
+      de: {
+        nav_home: "Home",
+        nav_apps: "Apps",
+        privacy_policy: "Datenschutzerklärung",
+        apps_title: "Unsere Apps",
+        click_for_more: "Klicke für Details & Downloads",
+        oily_desc: "Deine umfassende App für ätherische Öle, Rezepte, Mischungen und Anwendungen. Entdecke die Kraft der Natur direkt auf deinem Smartphone.",
+        privacy_title: "Datenschutzerklärung",
+        privacy_text: "<p>Hier steht deine Datenschutzerklärung. Du kannst diesen Text beliebig anpassen.</p>"
+      },
+      en: {
+        nav_home: "Home",
+        nav_apps: "Apps",
+        privacy_policy: "Privacy Policy",
+        apps_title: "Our Apps",
+        click_for_more: "Click for details & downloads",
+        oily_desc: "Your comprehensive app for essential oils, recipes, blends, and applications. Discover the power of nature right on your smartphone.",
+        privacy_title: "Privacy Policy",
+        privacy_text: "<p>This is your privacy policy. You can customize this text as needed.</p>"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById('langBtn').textContent = lang === 'de' ? '🇩🇪 DE' : '🇬🇧 EN';
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          if (key === 'privacy_text') {
+            el.innerHTML = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
         }
-
-        // --- Modal ---
-        function openAppDetails() {
-            document.getElementById('appModal').style.display = 'flex';
-        }
-
-        function closeAppDetails() {
-            document.getElementById('appModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('appModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Interaktiver 3D-Tilt Effekt
-        document.querySelectorAll('.app-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                card.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg) scale(1.03)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-            });
-        });
-    </script>
+      });
+    }
+  </script>
 </body>
 </html>
