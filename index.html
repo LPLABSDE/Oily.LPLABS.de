@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
     <nav class="sidebar">
         <div class="brand-name">Oily</div>
         <ul class="menu-items">
@@ -19,24 +18,20 @@
                 <a href="#" class="menu-link" onclick="switchTab(event, 'apps')">Apps</a>
             </li>
 
-            <!-- Datenschutzerklärung -->
             <li class="menu-item">
                 <a href="#" class="menu-link" onclick="switchTab(event, 'datenschutz')">Datenschutzerklärung</a>
             </li>
         </ul>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
         
-        <!-- Home Sektion -->
         <section id="home" class="section active">
             <h2>Willkommen bei Oily</h2>
             <p>Wir entwickeln smarte Lösungen, um den Überblick über Ihre Fahrzeuge zu behalten. Strukturierte Daten und rechtzeitige Erinnerungen sorgen für eine längere Lebensdauer Ihrer Maschinen.</p>
             <p>Klicken Sie im Menü auf <strong>Apps</strong>, um unsere Anwendungen zu sehen.</p>
         </section>
 
-        <!-- Apps Sektion -->
         <section id="apps" class="section">
             <h2>Unsere Apps</h2>
             <p>Wählen Sie eine App aus, um Details und Download-Links anzuzeigen:</p>
@@ -49,7 +44,6 @@
             </div>
         </section>
 
-        <!-- Datenschutzerklärung Sektion -->
         <section id="datenschutz" class="section">
             <h2>Datenschutzerklärung</h2>
 
@@ -63,7 +57,7 @@
 
             <h3>2. Erhebung und Speicherung personenbezogener Daten</h3>
             <p>
-                Beim Besuch dieser Website werden automatisch Informationen erfasst, die dein Browser übermittelt. Dazu gehören u. a.:
+                Beim Besuch dieser Website werden automatisch Informationen erfasst, die dein Browser übermittelt. Dazu gehören u. a.:
             </p>
             <ul>
                 <li>Server‑Log‑Daten wie IP‑Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem</li>
@@ -88,7 +82,7 @@
             <h3>5. Analyse‑Tools</h3>
             <p>
                 Falls eingesetzt, können Tools wie Google Analytics oder Matomo genutzt werden, um das Nutzerverhalten auszuwerten.
-                Dabei werden z. B. Seitenaufrufe, Verweildauer und technische Daten erfasst.
+                Dabei werden z. B. Seitenaufrufe, Verweildauer und technische Daten erfasst.
                 Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Optimierung der Website).
             </p>
 
@@ -96,7 +90,7 @@
             <p>Eine Weitergabe deiner Daten erfolgt nur, wenn:</p>
             <ul>
                 <li>gesetzliche Verpflichtungen bestehen</li>
-                <li>Dienstleister (z. B. Hosting‑Anbieter) eingebunden sind</li>
+                <li>Dienstleister (z. B. Hosting‑Anbieter) eingebunden sind</li>
             </ul>
             <p>
                 Diese Dienstleister handeln nach unseren Weisungen und sind vertraglich verpflichtet, die DSGVO einzuhalten.
@@ -133,7 +127,6 @@
 
     </main>
 
-    <!-- App Detail Modal -->
     <div id="appModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeAppDetails()">&times;</span>
@@ -148,7 +141,6 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         function switchTab(event, tabId) {
             event.preventDefault();
@@ -173,6 +165,22 @@
                 modal.style.display = 'none';
             }
         }
+
+        // Interaktiver 3D-Tilt Effekt für App-Karten
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                card.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg) scale(1.03)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+        });
     </script>
+    
 </body>
 </html>
