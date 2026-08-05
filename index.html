@@ -288,7 +288,7 @@ Wir entwickeln smarte Lösungen, um den Überblick über Ihre Fahrzeuge zu behal
 <footer>
 <div class="footer-container">
 <p>&copy; 2026 LChandi. All rights reserved.</p>
-<a href="#" id="privacy-link" onclick="showPage('privacy')">Datenschutzerklärung</a>
+<a href="/datenschutz.html" id="privacy-link" target="_blank">Datenschutzerklärung</a>
 </div>
 </footer>
 
@@ -557,6 +557,11 @@ document.addEventListener('keydown', function(e) {
 if(e.key === 'Escape') {
 closeAppDetails();
 }
+});
+
+// Initialize privacy content on load
+document.addEventListener('DOMContentLoaded', function() {
+toggleLanguage();
 });
 </script>
 
