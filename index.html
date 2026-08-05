@@ -459,10 +459,15 @@ let currentLang = 'de';
 function toggleLanguage() {
 currentLang = (currentLang === 'de') ? 'en' : 'de';
 document.getElementById('lang-toggle').innerText = currentLang === 'de' ? 'EN' : 'DE';
+
+// Privacy-Link dynamisch setzen
+const privacyLink = document.getElementById('privacy-link');
+privacyLink.href = currentLang === 'de' ? '/datenschutz.html' : '/privacy.html';
+
 const t = translations[currentLang];
 document.getElementById('nav-home').innerText = t.nav_home;
 document.getElementById('nav-apps').innerText = t.nav_apps;
-document.getElementById('privacy-link').innerText = t.privacy_policy;
+privacyLink.innerText = t.privacy_policy;
 document.getElementById('apps-title').innerText = t.apps_title;
 document.getElementById('click-for-more').innerText = t.click_for_more;
 document.getElementById('oily-desc').innerText = t.oily_desc;
