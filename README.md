@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Website](https://img.shields.io/badge/Website-online-brightgreen)](https://app.lchandi.de)
+[![Website](https://img.shields.io/badge/Website-online-brightgreen)](https://LPLABS.de)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![HTML5](https://img.shields.io/badge/HTML5-E34C26?logo=html5&logoColor=white)](https://www.w3.org/TR/html52/)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
@@ -10,7 +10,7 @@
 
 Moderne Website für die Oily Android App
 
-[Website](https://app.lchandi.de) • [Play Store](https://play.google.com/store/apps/details?id=de.lchandi.oily) • [Datenschutz](https://app.lchandi.de/datenschutz.html)
+[Website](https://LPLABS.de) • [Play Store](https://play.google.com/store/apps/details?id=com.project.oily&pli=1) • [Datenschutz](https://LPLABS.de/datenschutz.html)
 
 </div>
 
@@ -52,10 +52,10 @@ Moderne Website für die Oily Android App
 
 ```bash
 # Repository klonen
-git clone https://github.com/lchandi/app.lchandi.de.git
+git clone https://github.com//app..de.git
 
 # Lokal testen (Live Server oder Browser)
-# Website läuft unter: https://app.lchandi.de
+# Website läuft unter: https://app..de
 ```
 
 ---
@@ -83,7 +83,7 @@ const appData = {
 
 Privacy Policy URL (erforderlich):
 ```
-https://app.lchandi.de/datenschutz.html
+https://app..de/datenschutz.html
 ```
 
 ---
@@ -97,8 +97,8 @@ MIT License – siehe [LICENSE](LICENSE)
 ## 👨‍💻 Autor
 
 **Lovepreet Chandi**  
-📧 kontakt@lchandi.de  
-🔗 [GitHub](https://github.com/lchandi)
+📧 kontakt@.de  
+🔗 [GitHub](https://github.com/LPLABSDE)
 
 <div align="center">
 
