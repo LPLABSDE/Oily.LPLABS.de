@@ -34,56 +34,11 @@ Moderne Website für die Oily Android App
 - **JavaScript** – Vanilla (keine Dependencies)
 - **Hosting** – GitHub Pages
 
----
-
-## 📁 Struktur
-
-```
-├── index.html          # Hauptseite (Home + Apps)
-├── datenschutz.html    # Deutsche Datenschutzerklärung
-├── privacy.html        # English Privacy Policy
-├── style.css           # Globale Styles
-└── *.png              # App Icons & Banner
-```
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Repository klonen
-git clone https://github.com//app..de.git
-
-# Lokal testen (Live Server oder Browser)
-# Website läuft unter: https://app..de
-```
-
----
-
-## 🔧 App-Details anpassen
-
-Bearbeite in `index.html` das `appData` Objekt:
-
-```javascript
-const appData = {
-  oily: {
-    de: {
-      title: 'Oily',
-      subtitle: 'Wartungstagebuch für Android',
-      description: 'Deine Beschreibung...',
-      features: ['Feature 1', 'Feature 2', ...]
-    }
-  }
-};
-```
-
----
-
 ## 📱 Google Play Requirements
 
-Privacy Policy URL (erforderlich):
+Privacy Policy URL :
 ```
-https://app..de/datenschutz.html
+https://LPLABS.de/datenschutz.html
 ```
 
 ---
@@ -97,7 +52,7 @@ MIT License – siehe [LICENSE](LICENSE)
 ## 👨‍💻 Autor
 
 **Lovepreet Chandi**  
-📧 kontakt@.de  
+📧 supportt@LPLABS.de  
 🔗 [GitHub](https://github.com/LPLABSDE)
 
 <div align="center">
