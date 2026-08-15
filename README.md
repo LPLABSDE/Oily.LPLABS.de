@@ -49,9 +49,8 @@ MIT License – siehe [LICENSE](LICENSE)
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Kontakt
 
-**Lovepreet Chandi**  
 📧 support@LPLABS.de  
 🔗 [GitHub](https://github.com/LPLABSDE)
 
